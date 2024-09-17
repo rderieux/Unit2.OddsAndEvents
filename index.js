@@ -15,6 +15,15 @@ function addNumberToBank(number) {
   numbers.bank.push(number);
 }
 
+function renderNumberToOddOrEven() {
+  const number = numbers.bank[0];
+  if (number % 2 === 0) {
+    numbers.evens.push(number);
+  } else {
+    numbers.odds.push(number);
+  }
+}
+
 // === Render ===
 //create a function that renders the numbers to the number bank
 function renderNumbersToBank() {
