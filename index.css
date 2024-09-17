@@ -9,3 +9,19 @@ output {
   border: 1px solid black;
   border-radius: 3px;
 }
+
+#numberBank output span::after {
+  content: ", ";
+}
+
+#numberBank output span:last-child::after {
+  content: "";
+}
+
+#sortedNumbers output span::after {
+  content: ", ";
+}
+
+#sortedNumbers output span:last-child::after {
+  content: "";
+}
