@@ -15,8 +15,8 @@ function addNumberToBank(number) {
   numbers.bank.push(number);
 }
 
-function renderNumberToOddOrEven() {
-  const number = numbers.bank[0];
+function firstNumberToOddOrEven() {
+  const number = numbers.bank.shift();
   if (number % 2 === 0) {
     numbers.evens.push(number);
   } else {
@@ -37,13 +37,26 @@ function renderNumbersToBank() {
   $output.replaceChildren(...$numbers);
 }
 
+// render the odd numbers to the odds output
+function renderOddNumbers() {
+  const $numbers = numbers.odds.map((number) => {
+    const $number = document.createElement("span");
+    $number.textContent = number;
+
+    return $number;
+  });
+  const $output = document.querySelector("#odds output");
+  $output.replaceChildren(...$numbers);
+}
+
 function render() {
   renderNumbersToBank();
+  renderOddNumbers();
 }
 
 //  === Script ===
 render();
-
+// Add event listener for form submition
 const $form = document.querySelector("form");
 $form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -52,6 +65,16 @@ $form.addEventListener("submit", (event) => {
 
   addNumberToBank($number.value);
   $number.value = null;
+
+  render();
+});
+
+// add event listener for sort 1 button
+const $section = document.querySelector("#sortOne");
+$section.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  firstNumberToOddOrEven();
 
   render();
 });
