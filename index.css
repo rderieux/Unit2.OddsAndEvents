@@ -17,3 +17,11 @@ output {
 #numberBank output span:last-child::after {
   content: "";
 }
+
+#sortedNumbers output span::after {
+  content: ", ";
+}
+
+#sortedNumbers output span:last-child::after {
+  content: "";
+}

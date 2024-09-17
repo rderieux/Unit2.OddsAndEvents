@@ -27,9 +27,10 @@ function firstNumberToOddOrEven() {
 }
 
 // Create function that loops through all numbers in the bank
-function allNumbersToOddOrEven(numbers) {
-  for (let i = 0; i < numbers.length; i++) {
-    const number = numbers.bank[i];
+function allNumbersToOddOrEven() {
+  const bankCopy = numbers.bank.slice();
+  for (let i = 0; i < bankCopy.length; i++) {
+    const number = numbers.bank.shift();
     if (number % 2 === 0) {
       numbers.evens.push(number);
     } else {
@@ -97,8 +98,8 @@ $form.addEventListener("submit", (event) => {
 });
 
 // add event listener for sort 1 button
-const $section = document.querySelector("#sortOne");
-$section.addEventListener("click", (event) => {
+const $sortOne = document.querySelector("#sortOne");
+$sortOne.addEventListener("click", (event) => {
   event.preventDefault();
 
   firstNumberToOddOrEven();
@@ -107,3 +108,11 @@ $section.addEventListener("click", (event) => {
 });
 
 // add event listener for sort all button
+const $sortAll = document.querySelector("#sortAll");
+$sortAll.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  allNumbersToOddOrEven();
+
+  render();
+});
