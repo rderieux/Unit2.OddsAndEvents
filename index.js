@@ -1,3 +1,4 @@
+// === State ===
 // TODO: this file! :)
 // create an object with three arrays
 // one to store the number bank numbers
@@ -8,3 +9,10 @@ const numbers = {
   odds: [],
   evens: [],
 };
+
+//create a function that moves a single number
+function addNumberToBank(number) {
+  numbers.bank.push(number);
+}
+
+// === Render ===
